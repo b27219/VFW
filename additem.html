@@ -1,0 +1,71 @@
+<!doctype html>
+<!-- Sabra May -->
+<!-- VFW 1305 -->
+<!-- Project 1-->
+<!-- May 9, 2013-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="food storage, emergency, preparedness, provident living,"
+<meta name="description" content="Track what you have in your pantry to build up your food storage." />
+<meta name="robots" content="index, follow" />
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<meta name="viewport" content="target-densitydpi=device-dpi" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<title>Store It!</title>
+</head>
+
+<body>
+<h1>Store It!</h1>
+
+<form action="#" method="post" id="storageForm">
+	<fieldset id="appFieldset">
+		<legend> My Pantry </legend>
+		<div>
+		<ul id="storageData">
+			<label for="itemtype">Choose a Category: </label>
+			<select id="itemtype">
+				<option value="grain">Grain</option>
+				<option value="legumes">Legumes</option>
+				<option value="proteins">Proteins</option>
+				<option value="fruits">Fruits</option>
+				<option value="vegetables">Vegetables</option>
+				<option value="sugar">Sugars</option>
+				<option value="dairy">Dairy</option>
+				<option value="fatsoils">Fats and Oils</option>
+			</select>	
+		
+		 <p><lable for="item">Item: </lable> 
+		 <input name="item" type="text" value="" id="name" />
+		 </p>
+		
+			<li><input type="checkbox" value="yes" name="pounds" id="pounds" /><lable for="pounds">Pounds</lable>
+			<li><input type="checkbox" value="yes" name="gallons" id="gallons" /><lable for="gallons">Gallons</lable>
+			<li><input type="checkbox" value="yes" name="ounces" id="ounces" /><lable for="ounces">Ounces</lable>
+			<li><input type="checkbox" value="yes" name="units" id="units" /><lable for="units">Units</lable>
+			</li>
+			
+			<p>Amount:
+				<input name="amount" type="range"  min="0" max="50" id="amount"
+			</p>
+			<br>
+			<p><input type="radio" id="liquid" /><label for="leader"> Liquid</label>
+			</p>
+	
+			<p><label for="notes">Item Notes:</label><br />
+			<textarea> </textarea>
+			<br>
+			<input type="submit" value="Add Item" />
+			
+		</fieldset>
+		</form>
+		
+		<p>
+		<a href="#">Clear Stored Data</a>&nbsp;&nbsp;&nbsp;<a href="#">Display Data</a>
+		</p>
+		
+		
+</body>
+</html>					
+		
