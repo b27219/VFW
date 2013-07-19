@@ -35,8 +35,9 @@
 			</li>
 		
 			<ul id="storageData">
-			<label for="itemtype">Choose a Category: </label>
-			<select id="itemtype">
+			<li id="select"><label for"group">"Choose a Category:"</label><br /></li>
+			 <label form="itemtype">Choose a Category: </label>
+			<!--<select id="itemtype">
 				<option value="games">Games</option>
 				<option value="productivity">Productivity</option>
 				<option value="health">Health and Fitness</option>
@@ -45,7 +46,7 @@
 				<option value="music">Music</option>
 				<option value="photography">Photography</option>
 				<option value="other">Other</option>
-			</select>
+			</select>-->
 			
 			<li>
 			<label for="priority">Priority:</label>
@@ -60,17 +61,18 @@
 			
 			<li><label for="notes">Notes:</label><br />
 			</li>
-			<textarea> </textarea>
+			<textarea id="notes"></textarea>
 			<br>
-			<input class="submit" type="submit" value="Save Idea" />
+			<input type="submit" value="Save Idea" id="submit"/>
 			
 		</fieldset>
 		</form>
 		
 		<p>
-		<a href="#">Clear Stored Data</a>&nbsp;&nbsp;&nbsp;<a href="#">Display Data</a>
+		<a href="#" id="clear">Clear Stored Data</a>
+		<a href="#" id="displayLink">Display Data</a>
 		</p>
-		
+	<script src="js/main.js" type="text/javascript"></script>	
 		
 </body>
 </html>					
