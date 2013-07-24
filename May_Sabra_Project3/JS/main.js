@@ -28,10 +28,10 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 	
 	//Find value of selected checkboxes
-	var checkboxes = document.forms[0].device;
+	/*var checkboxes = document.forms[0].device;
 	
-	console.log(checkboxes);
-	/*function getiPhoneValues() {
+	console.log(checkboxes);*/
+	function getiPhoneValues() {
 		if($('iPhone').checked) {
 			iPhoneValues = $("iPhone").value;
 		}else {
@@ -44,7 +44,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			}else {
 				iPadValues = "No";
 			}
-	}*/
+	}
 			
 	function toggleControls(n){
 	switch(n) {
@@ -53,14 +53,14 @@ window.addEventListener("DOMContentLoaded", function() {
 			$('clearLink').style.display = "inline";
 			$('displayLink').style.display = "none";
 			$('addNew').style.display = "inline";
-			//$('items').style.display = "none";
+			$('items').style.display = "none";
 			break;
 		case "off":
 			$('ideaForm').style.display = "block";
 			$('clearLink').style.display = "inline";
 			$('displayLink').style.display = "inline";
 			$('addNew').style.display = "none";
-			//$('items').style.display = "none";
+			$('items').style.display = "none";
 			break;	
 	default:
 		return false;		
@@ -71,14 +71,14 @@ window.addEventListener("DOMContentLoaded", function() {
 		var id 				=Math.floor(Math.random() *100000001);
 	//Gatherup all our form field values and store in an object
 	//Object properties contain array with the form label and input value
-	//getiPhoneValues();
-	//getiPadValues();
+	getiPhoneValues();
+	getiPadValues();
 	var item = {};
 		item.idea 			=["Idea:", $('idea').value];
 		item.date			=["Today's Date;", $('date').value];
 		item.category		=["Choose a Category:", $('select').value];
-		//item.iPhone			=["iPhone", iPhoneValues];
-		//item.iPad			=["iPad", iPadValues];
+		item.iPhone			=["iPhone", iPhoneValues];
+		item.iPad			=["iPad", iPadValues];
 		item.priority 		=["priority:", $('priority').value];
 		item.notes			=["Notes:",$('notes').value];
 				
