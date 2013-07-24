@@ -1,0 +1,77 @@
+/*	Sabra May
+	VFW 1307
+	Project 3 */
+	
+body {
+	font: 14px Helvetica, Arial, sans-serif;
+	color #555;
+}	
+
+ul{
+	list-style:none;
+}
+
+li{
+	padding: 0 0 5px;
+}
+
+form{
+	padding: 10px;
+}
+
+fieldset{
+	border: 2px solid #6a9fea;
+}
+
+legend{
+	text-transform: lowercase;
+	color: #ff9900;
+	background: #fff;
+	padding: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+header h1{
+	text-transform: lowercase;
+	font-size: 20px;
+	margin-left: 10px;
+	color: #6a9fea;
+	padding: 5px 10px;
+	width: 230px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+header p{
+text-transform: lowercase;
+	font-size: 16px;
+	color: #b0ddfd;
+	padding: 0 10px;
+	margin-left: 10px;
+}
+
+input.button{
+	background: #FFF;
+	height: 24px;
+	width: 100px;
+	font-size: 14px;
+}
+
+input.button:active{
+	color: white;
+	background: #FFED86;
+}
+
+input.submit{
+	background: #fff;
+	height: 24px;
+	width: 100px;
+	font-size: 14px;
+}
+
+input.submit:active{
+	color: white;
+	background: #FFED86;
+}
+
