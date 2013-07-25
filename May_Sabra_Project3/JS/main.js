@@ -149,7 +149,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
@@ -184,6 +184,16 @@ window.addEventListener("DOMContentLoaded", function() {
 		//so we can use that value when we save the data we edited
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
+	}
+	
+	function deleteItem() {
+		var ask = confirm("Are you sure you want to delete this idea?");
+		if(ask) {
+			localStorage.removeItem(this.key);
+			window.location.reload();
+		}else {
+			alert("Idea was not deleted");
+		}
 	}
 	
 	function validate(e) {
