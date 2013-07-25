@@ -52,15 +52,15 @@ window.addEventListener("DOMContentLoaded", function() {
 			$('ideaForm').style.display = "none";
 			$('clearLink').style.display = "inline";
 			$('displayLink').style.display = "none";
-			$('addNew').style.display = "inline";
-			$('items').style.display = "none";
+			//$('addNew').style.display = "inline";
+			//$('items').style.display = "none";
 			break;
 		case "off":
 			$('ideaForm').style.display = "block";
 			$('clearLink').style.display = "inline";
 			$('displayLink').style.display = "inline";
-			$('addNew').style.display = "none";
-			$('items').style.display = "none";
+			//$('addNew').style.display = "none";
+			//$('items').style.display = "none";
 			break;	
 	default:
 		return false;		
@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	function storeData() {
 		var id 				=Math.floor(Math.random() *100000001);
-	//Gatherup all our form field values and store in an object
+	//Gather up all our form field values and store in an object
 	//Object properties contain array with the form label and input value
 	getiPhoneValues();
 	getiPadValues();
@@ -98,11 +98,12 @@ window.addEventListener("DOMContentLoaded", function() {
 	makeDiv.appendChild(makeList);
 	document.body.appendChild(makeDiv);
 	$('items').style.display = "block";
-	for (var i=0, len=localStorage.length; i=len; i++) {
+	for (var i=0, len=localStorage.length; i<len; i++) {
 		var makeli = document.createElement('li');
-		makeli.appendChild(makeli);
-		var key = localStorage.key[i];
-		var value = localStorage.getItem[key];
+		var linksLi = document.createElement('li');
+		makeList.appendChild(makeli);
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
 		//convert the string from local storage value back to an object by using JSON.parse()
 		var obj = JSON.parse(value);
 		var makeSubList = document.createElement('ul');
@@ -112,8 +113,36 @@ window.addEventListener("DOMContentLoaded", function() {
 			makeSubList.appendChild(makeSubli);
 			var optSubText = obj[n][0]+ " "+obj[n][1];
 			makeSubli.innerHTML = optSubText;
+			makeSubList.appendChild(linksLi);
 		}
+		makeItemLinks(localStorage.key(i), linksLi); //Create edit and delete buttons/link for each item in local storage
 	}
+	}
+	
+	//Make ITem Links
+	//Create the edit and elete links for each stored item wen displayed
+	function makeItemLinks(key, linksLi) {
+		//add edit single item link
+		var editLink = document.createElement('a');
+		editLink.href ="#";
+		editLink.key = key;
+		var editText = "Edit";
+		//editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+		
+		//add line break
+		var breakTag = document.createElement('br');
+		linksLi.appendChild(breakTag);
+		
+		//add delete single item link
+		var deleteLink = document.createElement('a');
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete";
+		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
 	}
 	
 	//Variable defaults
