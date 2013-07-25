@@ -119,7 +119,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 	}
 	
-	//Make ITem Links
+	//Make Item Links
 	//Create the edit and elete links for each stored item wen displayed
 	function makeItemLinks(key, linksLi) {
 		//add edit single item link
@@ -127,7 +127,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		editLink.href ="#";
 		editLink.key = key;
 		var editText = "Edit";
-		//editLink.addEventListener("click", editItem);
+		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 		
@@ -143,6 +143,28 @@ window.addEventListener("DOMContentLoaded", function() {
 		//deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
+	}
+	
+	function editItem() {
+		//get data from item in local storage
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		//show the form
+		toggleControls("off");
+		
+		//populate the form fields with current local Storage values
+		$('idea').value = item.idea[1];
+		$('date').value = item.date[1];
+		$('select').value = item.category[1];
+		if(item.iPhone[1] == "Yes") {
+			$('iPhone').setAttribute("checked", "checked");
+		}
+		if(item.iPad[1] =="Yes") {
+			$('iPad').setAttribute("checked", "checked");
+		}
+		$('priority').value = item.priority[1];
+		$('notes').value = item.notes[1];
 	}
 	
 	//Variable defaults
