@@ -67,8 +67,17 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 	
-	function storeData() {
-		var id 				=Math.floor(Math.random() *100000001);
+	function storeData(key) {
+		//If there is no key, it is a brand new item and needs a new key
+		if(!key) {
+			var id 				=Math.floor(Math.random() *100000001);
+		}else {
+			//Set the id to the existing key we're editing so that it will save over the data
+			//The key is the same key that's been passed along from the editSubmit event handler
+			//the the validate function, and then passed here, into the storeData function
+			id = key;
+		}
+		
 	//Gather up all our form field values and store in an object
 	//Object properties contain array with the form label and input value
 	getiPhoneValues();
@@ -223,8 +232,9 @@ window.addEventListener("DOMContentLoaded", function() {
 			e.preventDefault();
 			return false;
 		}else {
-			//If there are no erros, save data
-			storeData();
+			//If there are no erros, save data. Send key value (from editData function)
+			//Remember this key value it was passed through the editSubmit event listener as a property
+			storeData(this.key);
 		}
 	}	
 	
