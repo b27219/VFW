@@ -165,13 +165,75 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 		$('priority').value = item.priority[1];
 		$('notes').value = item.notes[1];
+		
+		//remove inital listener from the input 'save idea' button
+		submit.removeEventListener("click", storeData);
+		//change submit button value to say edit 
+		$('submit').value = "Edit Idea";
+		var editSubmit = $('submit');
+		//Save the key value established in this function as a property of the editSubmit event
+		//so we can use that value when we save the data we edited
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
 	}
+	
+	function validate(e) {
+		//Define the elements we want to check
+		var getIdea 	= $('idea');
+		var getDate 	= $('date');
+		var getCategory = $('select');
+		
+		//Reset error messages
+		errMsg.innerHTML = "";
+		getIdea.style.border = "1px solid black";
+		getDate.style.border = "1px solid black";
+		//getCategory.style.border = "1px solid black";
+
+				
+		//Get Error Messages
+		var messageAry = [];
+		//Idea validation
+		if(getIdea.value === "") {
+			var ideaError = "Please enter the idea";
+			getIdea.style.border = "1px solid red";
+			messageAry.push(ideaError);
+		}
+		
+		//Date validation
+		if(getDate.value === "") {
+			var dateError = "Please enter today's date";
+			getDate.style.border = "1px solid red";
+			messageAry.push(dateError);
+		}
+		
+		//Category validation
+		if(getCategory.value== "Choose a Category") {
+			var catError = "Please choose a category";
+			getCategory.style.border = "1px solid red";
+			messageAry.push(catError);
+		}
+		
+		//If there are errors, display on screen
+		if(messageAry.length >=1) {
+			for(var i=0, j=messageAry.length; i < j; i++) {
+				var txt = document.createElement('li');
+				txt.innerHTML = messageAry[i];
+				errMsg.appendChild(txt);
+			}
+			e.preventDefault();
+			return false;
+		}else {
+			//If there are no erros, save data
+			storeData();
+		}
+	}	
 	
 	//Variable defaults
 	var catGroups = ["Choose a Category", "Games", "Productivity", "Health and Fitness", "Entertainment", "Education", "Music", "Photography", "Other"];
 	makeCats();
 	iPhoneValue = "No";
 	iPadValue = "No";
+	errMsg = $('errors');
 	
 	//Clear Data
 	var clearLocal = function() {
@@ -191,5 +253,5 @@ window.addEventListener("DOMContentLoaded", function() {
 	var clearLink = $("clearLink");
 	clearLink.addEventListener("click", clearLocal);
 	var submit = $("submit");
-	submit.addEventListener("click", storeData);
+	submit.addEventListener("click", validate);
 });
