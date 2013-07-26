@@ -206,7 +206,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		errMsg.innerHTML = "";
 		getIdea.style.border = "1px solid black";
 		getDate.style.border = "1px solid black";
-		//getCategory.style.border = "1px solid black";
+		getCategory.style.border = "1px solid black";
 
 				
 		//Get Error Messages
