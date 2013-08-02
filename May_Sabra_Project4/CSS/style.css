@@ -16,7 +16,15 @@ li{
 }
 
 form{
-	padding: 10px;
+	/*padding: 10px;*/
+	background: #feffff;
+background: -moz-linear-gradient(top,  #feffff 0%, #ddf1f9 35%, #a0d8ef 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feffff), color-stop(35%,#ddf1f9), color-stop(100%,#a0d8ef));
+background: -webkit-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+background: -o-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+background: -ms-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+background: linear-gradient(to bottom,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#a0d8ef',GradientType=0 );
 }
 
 fieldset{
@@ -30,6 +38,8 @@ legend{
 	padding: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	
+
 }
 
 header h1{
@@ -74,4 +84,6 @@ input.submit:active{
 	color: white;
 	background: #FFED86;
 }
+
+
 

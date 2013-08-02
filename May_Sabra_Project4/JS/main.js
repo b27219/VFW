@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	function makeCats() {
 		var formTag = document.getElementsByTagName("form"), 
-			selectLi = $('select'),
+			selectLi = $('selectList'),
 			makeSelect = document.createElement('select');
 			makeSelect.setAttribute("id", "select");
 		for (var i=0, j=catGroups.length; i<j; i++) {
@@ -23,7 +23,6 @@ window.addEventListener("DOMContentLoaded", function() {
 			makeOption.setAttribute("value", optText);
 			makeOption.innerHTML = optText;
 			makeSelect.appendChild(makeOption);
-			.selectmenu("refresh");
 		}
 		selectLi.appendChild(makeSelect);
 	}
