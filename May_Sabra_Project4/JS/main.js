@@ -1,6 +1,6 @@
 //Sabra May
 //VFW 1307
-//July 25, 2013
+//Aug 1, 2013
 
 //Wait until DOM is ready
 
@@ -16,13 +16,14 @@ window.addEventListener("DOMContentLoaded", function() {
 		var formTag = document.getElementsByTagName("form"), 
 			selectLi = $('select'),
 			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "groups");
+			makeSelect.setAttribute("id", "select");
 		for (var i=0, j=catGroups.length; i<j; i++) {
 			var makeOption = document.createElement('option');
 			var optText = catGroups[i];
 			makeOption.setAttribute("value", optText);
 			makeOption.innerHTML = optText;
 			makeSelect.appendChild(makeOption);
+			.selectmenu("refresh");
 		}
 		selectLi.appendChild(makeSelect);
 	}
@@ -118,6 +119,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		var obj = JSON.parse(value);
 		var makeSubList = document.createElement('ul');
 		makeli.appendChild(makeSubList);
+		getImage(obj.category[1], makeSubList);
 		for (var n in obj) {
 			var makeSubli = document.createElement('li');
 			makeSubList.appendChild(makeSubli);
@@ -127,6 +129,15 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 		makeItemLinks(localStorage.key(i), linksLi); //Create edit and delete buttons/link for each item in local storage
 	}
+	}
+	
+	//Get the image for the right category
+	function getImage(catName, makeSubList) {
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImage = document.createElement('img');
+		var setSrc = newImage.setAttribute("src", "images/"+ catName + ".png");
+		imageLi.appendChild(newImage);
 	}
 	
 	//Auto Populate Local Storage
@@ -260,7 +271,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	}	
 	
 	//Variable defaults
-	var catGroups = ["Choose a Category", "Games", "Productivity", "Health and Fitness", "Entertainment", "Education", "Music", "Photography", "Other"];
+	var catGroups = ["Choose a Category", "Games", "Productivity", "Health", "Education", "Music", "Photography", "Other"];
 	makeCats();
 	iPhoneValue = "No";
 	iPadValue = "No";

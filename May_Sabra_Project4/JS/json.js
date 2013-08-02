@@ -6,7 +6,7 @@ var json = {
 	"idea1": {
 		"idea": ["Idea","Something good"],
 		"date": ["Today's Date", "07-30-2013"],
-		"category": ["Choose a Category", "Game"],
+		"category": ["Choose a Category", "Games"],
 		"iPhone": ["iPhone", "Yes"],
 		"iPad": ["iPad", "Yes"],
 		"priority": ["Priority", "7"],
@@ -24,7 +24,7 @@ var json = {
 	"idea3": {
 		"idea": ["Idea","Something best"],
 		"date": ["Today's Date", "08-01-2013"],
-		"category": ["Choose a Category", "Health and Fitness"],
+		"category": ["Choose a Category", "Health"],
 		"iPhone": ["iPhone", "Yes"],
 		"iPad": ["iPad", "Yes"],
 		"priority": ["Priority", "5"],
